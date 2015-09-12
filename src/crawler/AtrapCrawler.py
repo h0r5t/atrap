@@ -1,9 +1,6 @@
 class AtrapCrawler:
     def __init__(self):
-        self.test()
+        api_key = self.loadApiKey()
 
-    def test(self):
-        return "test"
-
-    def product(self, a, b):
-        return a*b
+    def loadApiKey(self):
+        pass
