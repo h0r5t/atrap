@@ -1,5 +1,5 @@
 import unittest
-from crawler import HelperTools
+from core import HelperTools
 
 
 class TestAtrapCrawler(unittest.TestCase):

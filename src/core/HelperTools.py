@@ -7,3 +7,7 @@ def getParentDir(dir):
 
 def getApiKeyFile():
     return getParentDir(getParentDir(getParentDir(__file__))) + '\\api_key.key'
+
+
+def getConfigFile():
+    return getParentDir(getParentDir(getParentDir(__file__))) + '\\config\\config.cfg'
