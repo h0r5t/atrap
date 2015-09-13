@@ -4,6 +4,7 @@ from core.AtrapCrawler import AtrapCrawler
 from core.ApiObjects import LiveLeagueGamesList
 from core import HelperTools
 import json
+import os
 
 
 class TestAtrapCrawler(unittest.TestCase):
@@ -47,7 +48,7 @@ class TestAtrapCrawler(unittest.TestCase):
         self.assertTrue("36" in id_list)
 
     def loadJsonFromTestFile(self, filename):
-        sample = open(HelperTools.getParentDir(__file__) + "\\res\\" + filename + ".json", encoding="utf8")
+        sample = open(os.path.join(HelperTools.getParentDir(__file__), "res", filename + ".json"), encoding="utf8")
         content = sample.read().strip()
         json_obj = json.loads(content)
         return json_obj

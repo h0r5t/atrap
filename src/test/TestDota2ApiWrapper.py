@@ -1,6 +1,7 @@
 import unittest
 from core.Dota2ApiWrapper import Dota2ApiWrapper
 from core.AtrapCrawler import AtrapCrawler
+import time
 
 
 class TestDota2ApiWrapper(unittest.TestCase):
@@ -12,10 +13,12 @@ class TestDota2ApiWrapper(unittest.TestCase):
     def test_getLeagueListing(self):
         json_object = self.apiWrapper.getLeagueListing()
         self.assertTrue("result" in json_object)
+        time.sleep(1)
 
     def test_getLiveLeagueGames(self):
         live_league_games = self.apiWrapper.getLiveLeagueGames()
         self.assertTrue(live_league_games is not None)
+        time.sleep(1)
 
     def test_getJsonObjectForApiCall(self):
         test_url = "http://ip.jsontest.com/"
@@ -25,3 +28,4 @@ class TestDota2ApiWrapper(unittest.TestCase):
         bad_url = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/"
         json_object = self.apiWrapper.getJsonObjectForApiCall(bad_url)
         self.assertTrue(len(json_object) == 0)
+        time.sleep(1)

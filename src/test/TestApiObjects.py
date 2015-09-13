@@ -1,5 +1,6 @@
 import unittest
 import json
+import os
 from core import ApiObjects
 from core import HelperTools
 
@@ -31,7 +32,7 @@ class TestApiObjects(unittest.TestCase):
         self.assertEqual(league_team_dire.getTeamID(), str(2418724))
 
     def loadJsonFromTestFile(self, filename):
-        sample = open(HelperTools.getParentDir(__file__) + "\\res\\" + filename + ".json", encoding="utf8")
+        sample = open(os.path.join(HelperTools.getParentDir(__file__), "res", filename + ".json"), encoding="utf8")
         content = sample.read().strip()
         json_obj = json.loads(content)
         return json_obj

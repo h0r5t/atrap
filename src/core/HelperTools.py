@@ -2,20 +2,20 @@ import os
 import json
 
 
-def getParentDir(dir):
-    return os.path.abspath(os.path.join(dir, '..'))
+def getParentDir(dira):
+    return os.path.abspath(os.path.join(dira, '..'))
 
 
 def getApiKeyFile():
-    return getParentDir(getParentDir(getParentDir(__file__))) + '\\config\\api_key.key'
+    return os.path.join(getParentDir(getParentDir(getParentDir(__file__))), "config", "api_key.key")
 
 
 def getConfigFile():
-    return getParentDir(getParentDir(getParentDir(__file__))) + '\\config\\config.cfg'
+    return os.path.join(getParentDir(getParentDir(getParentDir(__file__))), "config", "config.cfg")
 
 
 def getTeamsFile():
-    return getParentDir(getParentDir(getParentDir(__file__))) + '\\static\\teams\\teams.json'
+    return os.path.join(getParentDir(getParentDir(getParentDir(__file__))), "static", "teams", "teams.json")
 
 
 def loadJsonFromFile(path):

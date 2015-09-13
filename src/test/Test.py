@@ -1,16 +1,21 @@
 import os
 import unittest
 import sys
+import coverage
+from CoverageData import CoverageData
+import io
+
 
 # ugly af :-(
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-def getParentDir(dir):
-    return os.path.abspath(os.path.join(dir, '..'))
+def getParentDir(dira):
+    return os.path.abspath(os.path.join(dira, '..'))
 
 
 if __name__ == '__main__':
+
     suite = unittest.TestSuite()
 
     test_dir = getParentDir(__file__)
@@ -21,4 +26,15 @@ if __name__ == '__main__':
             if file != "Test":
                 suite.addTest(unittest.defaultTestLoader.loadTestsFromName(a))
 
-    unittest.TextTestRunner(verbosity=2).run(suite)
+    coverage = coverage.coverage()
+    coverage.start()
+
+    stream = io.StringIO()
+    unittest.TextTestRunner(verbosity=2, stream=sys.stdout).run(suite)
+
+    coverage.stop()
+    coverageData = CoverageData(coverage)
+    print("--------------\n")
+    for string in coverageData.getCoverageData():
+        print(string)
+    print("\n--------------")

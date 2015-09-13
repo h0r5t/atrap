@@ -14,9 +14,6 @@ class Dota2ApiWrapper():
         self.api_key = api_key
         self.key_string = "?key=" + api_key
 
-    def test(self):
-        return "test1"
-
     def getLeagueListing(self):
         url = self.GET_LEAGUE_LISTING + self.key_string
         return self.getJsonObjectForApiCall(url)
