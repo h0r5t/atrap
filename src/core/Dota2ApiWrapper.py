@@ -1,5 +1,7 @@
-import urllib2
+from urllib.request import urlopen
 import json
+import codecs
+from core.ApiObjects import LiveLeagueGamesList
 
 
 class Dota2ApiWrapper():
@@ -12,15 +14,23 @@ class Dota2ApiWrapper():
         self.api_key = api_key
         self.key_string = "?key=" + api_key
 
+    def test(self):
+        return "test1"
+
     def getLeagueListing(self):
         url = self.GET_LEAGUE_LISTING + self.key_string
         return self.getJsonObjectForApiCall(url)
 
     def getLiveLeagueGames(self):
         url = self.GET_LIVE_LEAGUE_GAMES + self.key_string
-        return self.getJsonObjectForApiCall(url)
+        return LiveLeagueGamesList(self.getJsonObjectForApiCall(url)).getGames()
 
     def getJsonObjectForApiCall(self, url):
-        json_response = urllib2.urlopen(url).read()
-        json_object = json.loads(json_response)
+        try:
+            json_response = urlopen(url)
+            reader = codecs.getreader("utf-8")
+            json_object = json.load(reader(json_response))
+        except:
+            return {}
+
         return json_object
