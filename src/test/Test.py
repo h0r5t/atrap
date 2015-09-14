@@ -1,10 +1,9 @@
+from __future__ import print_function
 import os
 import unittest
 import sys
 import coverage
 from CoverageData import CoverageData
-import io
-
 
 # ugly af :-(
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -29,7 +28,6 @@ if __name__ == '__main__':
     coverage = coverage.coverage()
     coverage.start()
 
-    stream = io.StringIO()
     unittest.TextTestRunner(verbosity=2, stream=sys.stdout).run(suite)
 
     coverage.stop()
@@ -38,3 +36,7 @@ if __name__ == '__main__':
     for string in coverageData.getCoverageData():
         print(string)
     print("\n--------------")
+
+
+def warning(warning):
+    print("WARNING: ", warning, file=sys.stderr)

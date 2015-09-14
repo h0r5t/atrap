@@ -27,8 +27,8 @@ class TestAtrapCrawler(unittest.TestCase):
 
         relevant_games = crawler.getRelevantLiveLeagueGames(team_id_filter_list)
         match_id_list = []
-        for game in relevant_games:
-            match_id_list.append(str(game.getMatchID()))
+        for match_id in relevant_games:
+            match_id_list.append(str(match_id))
 
         self.assertTrue("1790745997" in match_id_list)
         self.assertTrue("1790669081" in match_id_list)
@@ -46,6 +46,16 @@ class TestAtrapCrawler(unittest.TestCase):
         self.assertTrue("1838315" in id_list)
         self.assertTrue("39" in id_list)
         self.assertTrue("36" in id_list)
+
+    def test_findFinishedGames(self):
+        crawler = AtrapCrawler()
+        config_mock = {"match_parser_countdown": "12"}
+        crawler.configMap = config_mock
+        old_relevant_games = ["1", "2", "3"]
+        current_relevant_games = ["3"]
+        match_id_list = crawler.findFinishedGames(old_relevant_games, current_relevant_games)
+        should_be_list = [{"countdown": 12, "match_id": "1"}, {"countdown": 12, "match_id": "2"}]
+        self.assertEqual(match_id_list, should_be_list)
 
     def loadJsonFromTestFile(self, filename):
         sample = open(os.path.join(HelperTools.getParentDir(__file__), "res", filename + ".json"), encoding="utf8")

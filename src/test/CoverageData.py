@@ -23,10 +23,39 @@ class CoverageData():
                     coverage_percent = int((len(covered) / line_amount) * 100)
                 else:
                     coverage_percent = 100
-                not_covered_as_string = self.notCoveredAsString(not_covered)
+                # not_covered_as_string = self.notCoveredAsString(not_covered)
+                non_covered_methods = self.getMethodsWithNonTestedCodeString(os.path.join(core_dir, f),  analysis[3])
                 result = str(coverage_percent) + " % (" + str(len(covered)) + "/" + str(line_amount) + ") : "
-                result += str(module_name) + " : " + str(not_covered_as_string)
+                result += str(module_name) + " : " + non_covered_methods
                 self.coverage_data_list.append(result)
+
+    def getMethodsWithNonTestedCodeString(self, _file, not_covered_list):
+        f = open(_file)
+        lines = f.readlines()
+
+        lines_to_method = {}
+
+        c = 0
+        currentdef = "no_def"
+        while c < len(lines):
+            cur_line = lines[c].strip()
+            if (cur_line.startswith("def ")):
+                currentdef = cur_line.split("def")[1].strip().split("(")[0] + "()"
+            if (cur_line.startswith("if __name__ == '__main__':") or cur_line.startswith('if __name__ == "__main__"')):
+                currentdef = "no_def"
+            lines_to_method[c] = currentdef
+            c += 1
+
+        non_covered_methods = []
+        for not_covered_line in not_covered_list:
+            method = lines_to_method[int(not_covered_line)-1]
+            if method not in non_covered_methods:
+                non_covered_methods.append(method)
+
+        result_string = ""
+        for method in non_covered_methods:
+            result_string += method + " "
+        return result_string.strip()
 
     def filterNotCovered(self, _file, not_covered_list):
         f = open(_file)

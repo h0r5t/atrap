@@ -8,20 +8,41 @@ class AtrapCrawler():
         self.configMap = self.loadConfig()
         api_key = self.loadApiKey()
         self.api_wrapper = Dota2ApiWrapper(api_key)
-        self.allRelevantGames = []
+
+        # list of match IDs
+        self.oldRelevantGames = []
+
+        # contains list of {"countdown": <cd>, "match_id": <match_id>}
         self.finishedGames = []
 
     def start(self):
         while(True):
 
+            # load static content
             teamsList = self.loadTeams()
             team_id_list = self.genereateTeamIDList(teamsList)
 
-            relevantLiveGames = self.getRelevantLiveLeagueGames(team_id_list)
-            # iterate over games, parse finished games and make relevantgames
-            # the list
+            currentRelevantGames = self.getRelevantLiveLeagueGames(team_id_list)
+            new_finished_games = self.findFinishedGames(currentRelevantGames)
+            self.finishedGames.append(new_finished_games)
+
+            for obj in self.finishedGames:
+                if (int(obj["countdown"]) <= 0):
+                    match_details_obj = self.api_wrapper.getMatchDetails(obj["match_id"])
+                    # save avg data, save player data, save match data
 
             time.sleep(int(self.configMap["crawler_sleep_time"]))
+
+    def findFinishedGames(self, old_relevant_games, current_relevant_games):
+        finished_games = []
+        for match_id in old_relevant_games:
+            if match_id not in current_relevant_games:
+                # relevant game is finished, can be parsed
+                obj = {"countdown": int(self.configMap["match_parser_countdown"]), "match_id": match_id}
+                finished_games.append(obj)
+
+        self.oldRelevantGames = current_relevant_games
+        return finished_games
 
     def getRelevantLiveLeagueGames(self, list_of_team_ids):
         # IDs need to be in string format
@@ -33,9 +54,9 @@ class AtrapCrawler():
             dire_team = game.getDireTeam()
 
             if radiant_team is not None and str(radiant_team.getTeamID()) in list_of_team_ids:
-                relevantGames.append(game)
+                relevantGames.append(game.getMatchID())
             elif dire_team is not None and str(dire_team.getTeamID()) in list_of_team_ids:
-                relevantGames.append(game)
+                relevantGames.append(game.getMatchID())
 
         return relevantGames
 

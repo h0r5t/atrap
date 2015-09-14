@@ -1,7 +1,10 @@
+from __future__ import print_function
 from urllib.request import urlopen
 import json
 import codecs
 from core.ApiObjects import LiveLeagueGamesList
+from core.ApiObjects import MatchDetails
+import Test
 
 
 class Dota2ApiWrapper():
@@ -10,6 +13,7 @@ class Dota2ApiWrapper():
 
         self.GET_LEAGUE_LISTING = "https://api.steampowered.com/IDOTA2Match_570/GetLeagueListing/v0001/"
         self.GET_LIVE_LEAGUE_GAMES = "https://api.steampowered.com/IDOTA2Match_570/GetLiveLeagueGames/v0001/"
+        self.GET_MATCH_DETAILS = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/v001/"
 
         self.api_key = api_key
         self.key_string = "?key=" + api_key
@@ -22,12 +26,17 @@ class Dota2ApiWrapper():
         url = self.GET_LIVE_LEAGUE_GAMES + self.key_string
         return LiveLeagueGamesList(self.getJsonObjectForApiCall(url)).getGames()
 
+    def getMatchDetails(self, match_id):
+        url = self.GET_MATCH_DETAILS + self.key_string + "&match_id=" + str(match_id)
+        return MatchDetails(self.getJsonObjectForApiCall(url))
+
     def getJsonObjectForApiCall(self, url):
         try:
             json_response = urlopen(url)
             reader = codecs.getreader("utf-8")
             json_object = json.load(reader(json_response))
         except:
+            Test.warning("error loading json from url: " + str(url))
             return {}
 
         return json_object
