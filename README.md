@@ -1,2 +1,5 @@
-# atrap (attempt to rate a pro)
-DotA 2 Pro player rating attempt
+#AtraP
+
+####Attempt to rate a Pro
+
+Dota2 Pro player rating attempt
