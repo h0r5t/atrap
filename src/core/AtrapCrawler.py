@@ -1,6 +1,7 @@
 from core.Dota2ApiWrapper import Dota2ApiWrapper
 from core import HelperTools
 import time
+from core.MatchProcessor import MatchProcessor
 
 
 class AtrapCrawler():
@@ -26,10 +27,11 @@ class AtrapCrawler():
             new_finished_games = self.findFinishedGames(currentRelevantGames)
             self.finishedGames.append(new_finished_games)
 
+            match_processor = MatchProcessor()
             for obj in self.finishedGames:
                 if (int(obj["countdown"]) <= 0):
                     match_details_obj = self.api_wrapper.getMatchDetails(obj["match_id"])
-                    # save avg data, save player data, save match data
+                    match_processor.process(match_details_obj)
 
             time.sleep(int(self.configMap["crawler_sleep_time"]))
 

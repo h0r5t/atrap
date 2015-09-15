@@ -18,6 +18,10 @@ def getTeamsFile():
     return os.path.join(getParentDir(getParentDir(getParentDir(__file__))), "static", "teams", "teams.json")
 
 
+def getPlayersDir():
+    return os.path.join(getParentDir(getParentDir(getParentDir(__file__))), "static", "players")
+
+
 def loadJsonFromFile(path):
     sample = open(path, encoding="utf8")
     content = sample.read().strip()
