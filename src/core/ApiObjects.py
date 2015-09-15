@@ -67,6 +67,9 @@ class MatchDetails(ApiObject):
     def getRadiantWin(self):
         return bool(self.json_object["radiant_win"])
 
+    def getMatchLength(self):
+        return str(self.json_object["duration"])
+
 
 class MatchDetailsPlayer(ApiObject):
 

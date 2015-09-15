@@ -40,6 +40,7 @@ class TestApiObjects(unittest.TestCase):
         self.assertEqual(match_details_obj.getMatchID(), "1789503761")
         self.assertTrue(match_details_obj.getRadiantWin())
         self.assertEqual(match_details_obj.getLeagueID(), "3502")
+        self.assertEqual(match_details_obj.getMatchLength(), "3542")
 
     def test_MatchDetailsPlayer(self):
         sample_json_obj = self.loadJsonFromTestFile("sample_match_details")

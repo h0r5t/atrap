@@ -6,7 +6,7 @@ from core.LocalObjects import LocalPlayer
 class MatchProcessor():
 
     def __init__(self):
-        relevant_player_ids = self.loadRelevantPlayerIDs()
+        self.relevant_player_ids = self.loadRelevantPlayerIDs()
 
     def loadRelevantPlayerIDs(self):
         id_list = []
@@ -18,10 +18,18 @@ class MatchProcessor():
         return id_list
 
     def process(self, match_details_instance):
-        self.processPlayerData(match_details_instance)
+        local_players = self.loadLocalPlayers()
+        self.processPlayerData(match_details_instance, local_players)
         # process match data
         # process average data
 
-    def processPlayerData(self, match_details_instance):
-        for player in match_details_instance.getPlayers():
-            local_player = LocalPlayer(player)
+    def loadLocalPlayers(self):
+        local_players = []
+        for playerfile in os.listdir(HelperTools.getPlayersDir()):
+            if playerfile != "player_positions.json":
+                path = os.path.join(HelperTools.getPlayersDir(), playerfile)
+                local_players.append(LocalPlayer(path))
+        return local_players
+
+    def processPlayerData(self, match_details_instance, local_players):
+        pass

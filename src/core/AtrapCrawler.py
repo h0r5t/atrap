@@ -27,11 +27,17 @@ class AtrapCrawler():
             new_finished_games = self.findFinishedGames(currentRelevantGames)
             self.finishedGames.append(new_finished_games)
 
+            # process matches
             match_processor = MatchProcessor()
             for obj in self.finishedGames:
                 if (int(obj["countdown"]) <= 0):
                     match_details_obj = self.api_wrapper.getMatchDetails(obj["match_id"])
                     match_processor.process(match_details_obj)
+
+            # iterate cooldowns of finished gamess
+            for obj in self.finishedGames:
+                countdown = int(obj["countdown"])
+                obj["countdown"] = countdown - int(self.configMap["crawler_sleep_time"])
 
             time.sleep(int(self.configMap["crawler_sleep_time"]))
 

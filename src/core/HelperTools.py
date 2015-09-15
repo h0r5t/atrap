@@ -25,5 +25,7 @@ def getPlayersDir():
 def loadJsonFromFile(path):
     sample = open(path, encoding="utf8")
     content = sample.read().strip()
+    if (content == ""):
+        return {}
     json_obj = json.loads(content)
     return json_obj
