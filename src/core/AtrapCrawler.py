@@ -29,10 +29,20 @@ class AtrapCrawler():
 
             # process matches
             match_processor = MatchProcessor()
+            processed_matches = []
             for obj in self.finishedGames:
                 if (int(obj["countdown"]) <= 0):
                     match_details_obj = self.api_wrapper.getMatchDetails(obj["match_id"])
+                    if len(match_details_obj) == 0:
+                        # match data is not available yet
+                        obj["countdown"] = int(self.configMap["match_parser_countdown"])
+                        continue
                     match_processor.process(match_details_obj)
+                    processed_matches.append(match_details_obj)
+
+            # delete all parsed matches from finishedGames list
+            for game in processed_matches:
+                self.finishedGames.remove(game)
 
             # iterate cooldowns of finished gamess
             for obj in self.finishedGames:
@@ -52,7 +62,7 @@ class AtrapCrawler():
         self.oldRelevantGames = current_relevant_games
         return finished_games
 
-    def getRelevantLiveLeagueGames(self, list_of_team_ids):
+    def getRelevantLiveLeagueGames(self, list_of_relevant_team_ids):
         # IDs need to be in string format
         relevantGames = []
         liveGames = self.api_wrapper.getLiveLeagueGames()
@@ -61,9 +71,9 @@ class AtrapCrawler():
             radiant_team = game.getRadiantTeam()
             dire_team = game.getDireTeam()
 
-            if radiant_team is not None and str(radiant_team.getTeamID()) in list_of_team_ids:
+            if radiant_team is not None and str(radiant_team.getTeamID()) in list_of_relevant_team_ids:
                 relevantGames.append(game.getMatchID())
-            elif dire_team is not None and str(dire_team.getTeamID()) in list_of_team_ids:
+            elif dire_team is not None and str(dire_team.getTeamID()) in list_of_relevant_team_ids:
                 relevantGames.append(game.getMatchID())
 
         return relevantGames

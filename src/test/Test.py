@@ -15,6 +15,8 @@ def getParentDir(dira):
 
 if __name__ == '__main__':
 
+    run_coverage = False
+
     suite = unittest.TestSuite()
 
     test_dir = getParentDir(__file__)
@@ -25,18 +27,21 @@ if __name__ == '__main__':
             if file != "Test":
                 suite.addTest(unittest.defaultTestLoader.loadTestsFromName(a))
 
-    coverage = coverage.coverage()
-    coverage.start()
+    if run_coverage:
+        coverage = coverage.coverage()
+        coverage.start()
 
     unittest.TextTestRunner(verbosity=2, stream=sys.stdout).run(suite)
 
-    coverage.stop()
-    coverageData = CoverageData(coverage)
-    print("--------------\n")
-    for string in coverageData.getCoverageData():
-        print(string)
-    print("\n--------------")
+    if run_coverage:
+        coverage.stop()
+        coverageData = CoverageData(coverage)
+        print("--------------\n")
+        for string in coverageData.getCoverageData():
+            print(string)
+        print("\n--------------")
 
 
 def warning(warning):
-    print("WARNING: ", warning, file=sys.stderr)
+    # print("WARNING: ", warning, file=sys.stderr)
+    pass

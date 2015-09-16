@@ -1,14 +1,34 @@
 [
     {
-      "team_id": 1838315,
-      "team_name": "Team Secret"
-    },
-    {
-      "team_id": 39,
-      "team_name": "Evil Geniuses"
-    },
-    {
-      "team_id": 36,
-      "team_name": "Natus Vincere"
+      "team_id": 1333179,
+      "team_name": "Cloud9",
+      "players":
+                [
+                    {
+                      "player_id": 47434686,
+                      "player_name": "SVG",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 86726887,
+                      "player_name": "MSS",
+                      "player_position": "offlane"
+                    },
+                    {
+                      "player_id": 177648913,
+                      "player_name": "ritsu",
+                      "player_position": "safelane"
+                    },
+                    {
+                      "player_id": 87196890,
+                      "player_name": "1437",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 31818853,
+                      "player_name": "brax",
+                      "player_position": "mid"
+                    }
+                ]
     }
 ]
