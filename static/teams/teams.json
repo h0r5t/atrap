@@ -30,5 +30,69 @@
                       "player_position": "mid"
                     }
                 ]
+    },
+    {
+      "team_id": 2276247,
+      "team_name": "4CL",
+      "players":
+                [
+                    {
+                      "player_id": 87285329,
+                      "player_name": "Pajkatt",
+                      "player_position": "mid"
+                    },
+                    {
+                      "player_id": 3916428,
+                      "player_name": "EGM",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 103735745,
+                      "player_name": "saksa",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 20321748,
+                      "player_name": "SexyBamboe",
+                      "player_position": "offlane"
+                    },
+                    {
+                      "player_id": 86751819,
+                        "player_name": "swiftending",
+                      "player_position": "carry"
+                    }
+                ]
+    },
+    {
+      "team_id": 36,
+      "team_name": "Na`Vi'",
+      "players":
+                [
+                    {
+                      "player_id": 70388657,
+                      "player_name": "Dendi",
+                      "player_position": "mid"
+                    },
+                    {
+                      "player_id": 116287390,
+                      "player_name": "PSM",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 86723143,
+                      "player_name": "Funn1k",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 89625472,
+                      "player_name": "XBOCT",
+                      "player_position": "carry"
+                    },
+                    {
+                      "player_id": 117421467,
+                        "player_name": "SoNNeikO",
+                      "player_position": "support"
+                    }
+                ]
     }
 ]

@@ -34,7 +34,8 @@ class EndToEndTest(unittest.TestCase):
 
     @patch("core.AtrapCrawler.HelperTools")
     @patch("core.LocalObjects.HelperTools")
-    def test_end_to_end(self, HelperToolsMock2, HelperToolsMock):
+    @patch("core.ApiObjects.HelperTools")
+    def test_end_to_end(self, HelperToolsMock3, HelperToolsMock2, HelperToolsMock):
         ete_dir = os.path.join(getParentDir(__file__), "res",  "end_to_end_test")
         match_id = "1790745997"
 
@@ -63,6 +64,8 @@ class EndToEndTest(unittest.TestCase):
         HelperToolsMock2.getConfigFile = MagicMock(return_value=fake_cfg)
         HelperToolsMock2.getWebDir = MagicMock(return_value=fake_web_dir)
         HelperToolsMock2.log = myLog
+
+        HelperToolsMock3.HelperToolsMock2.getMatchFile = MagicMock(return_value=fake_match_file)
 
         crawler = AtrapCrawler()
 

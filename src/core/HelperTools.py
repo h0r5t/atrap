@@ -47,6 +47,7 @@ def getPlayerPositionsFile():
 
 
 def log(string):
+    print(string)
     with open(getLogFile(), 'a') as f:
         f.write(str(string) + '\n')
 
