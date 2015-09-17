@@ -1,22 +1,27 @@
 from core import HelperTools
 import os
+from core.PlayerRating import MatchDetailsPlayerRating
+import json
 
 
 class LocalPlayer():
 
-    def __init__(self, local_player_filename):
-        self.local_player_filename = local_player_filename
-        self.player_positions = HelperTools.loadJsonFromFile(HelperTools.getPlayerPositionsFile())
-        self.json_player_data = HelperTools.loadJsonFromFile(local_player_filename)
+    def __init__(self, player_id):
+        self.local_player_filename = os.path.join(HelperTools.getWebDir(), "live", "players", str(player_id) + ".json")
+        self.json_player_data = loadJsonFromFile(self.local_player_filename)
+        self.isAnonymous = False
 
         if self.isEmpty():
             # new player, needs to be created
-            player_id = os.path.split(local_player_filename)[1].split(".")[0]
             player_pos_and_name = TeamsFile().getPlayerPositionAndName(player_id)
+            player_pos = player_pos_and_name["player_position"]
+            player_name = player_pos_and_name["player_name"]
+            team_name = player_pos_and_name["team_name"]
 
             self.json_player_data["player_id"] = player_id
-            self.json_player_data["player_name"] = player_pos_and_name["player_name"]
-            self.json_player_data["team_name"] = player_pos_and_name["team_name"]
+            self.json_player_data["player_name"] = player_name
+            self.json_player_data["player_position"] = player_pos
+            self.json_player_data["team_name"] = team_name
             self.json_player_data["average_kda"] = 0
             self.json_player_data["average_gpm"] = 0
             self.json_player_data["average_lh_per_min"] = 0
@@ -29,19 +34,61 @@ class LocalPlayer():
             self.json_player_data["average_xpm_rating"] = 0
             self.json_player_data["average_td_rating"] = 0
             self.json_player_data["average_hd_rating"] = 0
-            self.json_player_data["game_count"] = 0
+            self.json_player_data["average_fight_rating"] = 0
+            self.json_player_data["average_push_rating"] = 0
+            self.json_player_data["average_farm_rating"] = 0
+            self.json_player_data["average_total_rating"] = 0
+            self.json_player_data["counter"] = 0
             self.json_player_data["10_last_matches"] = []
 
-    def incrementGameCount(self):
-        self.json_player_data["game_count"] = self.getGameCount() + 1
+    def incrementCounter(self):
+        self.json_player_data["counter"] = self.getCounter() + 1
 
     def isEmpty(self):
         if len(self.json_player_data) == 0:
             return True
         return False
 
+    def applyMatchDetails(self, match_details_player, avg_values_instance):
+        HelperTools.log("           player update:")
+        self.updateAverageWithName("average_kda", match_details_player.getKDA())
+        HelperTools.log("           average_kda: " + str(self.getAverageKDA()))
+        self.updateAverageWithName("average_gpm", match_details_player.getGPM())
+        HelperTools.log("           average_gpm: " + str(self.getAverageGPM()))
+        self.updateAverageWithName("average_lh_per_min", match_details_player.getLastHitsPerMinute())
+        HelperTools.log("           average_lhpm: " + str(self.getAverageLHPM()))
+        self.updateAverageWithName("average_xpm", match_details_player.getXPM())
+        HelperTools.log("           average_xpm: " + str(self.getAverageXPM()))
+        self.updateAverageWithName("average_hero_damage", match_details_player.getHeroDamage())
+        HelperTools.log("           average_hd: " + str(self.getAverageHeroDamage()))
+        self.updateAverageWithName("average_tower_damage", match_details_player.getTowerDamage())
+        HelperTools.log("           average_td: " + str(self.getAverageTowerDamage()))
+
+        rating = MatchDetailsPlayerRating(match_details_player, avg_values_instance)
+        self.applyRating(rating)
+
+        self.incrementCounter()
+
+    def applyRating(self, rating):
+        rating_data = rating.getRatings()
+        self.updateAverageWithName("average_kda_rating", rating_data["kda_rating"])
+        self.updateAverageWithName("average_gpm_rating", rating_data["gpm_rating"])
+        self.updateAverageWithName("average_lhpm_rating", rating_data["lhpm_rating"])
+        self.updateAverageWithName("average_xpm_rating", rating_data["xpm_rating"])
+        self.updateAverageWithName("average_hd_rating", rating_data["hd_rating"])
+        self.updateAverageWithName("average_td_rating", rating_data["td_rating"])
+        self.updateAverageWithName("average_fight_rating", rating_data["fight_rating"])
+        self.updateAverageWithName("average_push_rating", rating_data["push_rating"])
+        self.updateAverageWithName("average_farm_rating", rating_data["farm_rating"])
+        self.updateAverageWithName("average_total_rating", rating_data["total_rating"])
+
+    def updateAverageWithName(self, name, value):
+        old_avg = int(self.json_player_data[name])
+        new_avg = updateAverage(old_avg, self.getCounter(), value)
+        self.json_player_data[name] = new_avg
+
     def getPlayerPosition(self):
-        return self.player_positions[str()]
+        return self.json_player_data["player_position"]
 
     def getTeamName(self):
         return self.json_player_data["team_name"]
@@ -100,21 +147,21 @@ class LocalPlayer():
     def getAverageTotalRating(self):
         return self.json_avg_data["average_total_rating"]
 
-    def getGameCount(self):
-        return self.json_player_data["game_count"]
+    def getCounter(self):
+        return self.json_player_data["counter"]
 
     def get10LastMatches(self):
         return self.json_player_data["last_10_matches"]
 
     def save(self):
-        HelperTools.saveJsonToFile(self.json_player_data, self.local_player_filename)
+        saveJsonToFile(self.json_player_data, self.local_player_filename)
 
 
 class AverageValues():
 
     def __init__(self, player_position):
-        self.avg_values_file = os.path.join(HelperTools.getWebDir, "avg", player_position, "average_values.json")
-        self.json_avg_data = HelperTools.loadJsonFromFile(self.avg_values_file)
+        self.avg_values_file = os.path.join(HelperTools.getWebDir(), "avg", player_position, "average_values.json")
+        self.json_avg_data = loadJsonFromFile(self.avg_values_file)
 
         if self.isEmpty():
             # instantiate avg file
@@ -124,15 +171,30 @@ class AverageValues():
             self.json_avg_data["average_xpm"] = 0
             self.json_avg_data["average_tower_damage"] = 0
             self.json_avg_data["average_hero_damage"] = 0
-            self.json_avg_data["game_count"] = 0
+            self.json_avg_data["counter"] = 0
 
     def isEmpty(self):
         if len(self.json_avg_data) == 0:
             return True
         return False
 
-    def incrementGameCount(self):
-        self.json_avg_data["game_count"] = self.getGameCount() + 1
+    def incrementCounter(self):
+        self.json_avg_data["counter"] = self.getCounter() + 1
+
+    def applyMatchDetails(self, match_details_player):
+        self.updateAverageWithName("average_kda", match_details_player.getKDA())
+        self.updateAverageWithName("average_gpm", match_details_player.getGPM())
+        self.updateAverageWithName("average_lh_per_min", match_details_player.getLastHitsPerMinute())
+        self.updateAverageWithName("average_xpm", match_details_player.getXPM())
+        self.updateAverageWithName("average_hero_damage", match_details_player.getHeroDamage())
+        self.updateAverageWithName("average_tower_damage", match_details_player.getTowerDamage())
+
+        self.incrementCounter()
+
+    def updateAverageWithName(self, name, value):
+        old_avg = int(self.json_avg_data[name])
+        new_avg = updateAverage(old_avg, self.getCounter(), value)
+        self.json_avg_data[name] = new_avg
 
     def getAverageKDA(self):
         return self.json_avg_data["average_kda"]
@@ -152,17 +214,17 @@ class AverageValues():
     def getAverageHeroDamage(self):
         return self.json_avg_data["average_hero_damage"]
 
-    def getGameCount(self):
-        return self.json_avg_data["game_count"]
+    def getCounter(self):
+        return self.json_avg_data["counter"]
 
     def save(self):
-        HelperTools.saveJsonToFile(self.json_avg_data, self.avg_values_file)
+        saveJsonToFile(self.json_avg_data, self.avg_values_file)
 
 
 class TeamsFile():
 
     def __init__(self):
-        self.teams_data = HelperTools.loadJsonFromFile(HelperTools.getTeamsFile())
+        self.teams_data = loadJsonFromFile(HelperTools.getTeamsFile())
 
     def getPlayerPositionAndName(self, player_id):
         result = {}
@@ -175,3 +237,35 @@ class TeamsFile():
                         break
 
         return result
+
+    def idExists(self, player_id):
+        found = False
+        for team in self.teams_data:
+                for player in team["players"]:
+                    if player["player_id"] == int(player_id):
+                        found = True
+                        break
+
+        return found
+
+
+def updateAverage(old_average, counter, value):
+    new_average = ((old_average * counter) + value) / (counter + 1)
+    return new_average
+
+
+def loadJsonFromFile(path):
+    if not os.path.isfile(path):
+        return {}
+    sample = open(path, encoding="utf8")
+    content = sample.read().strip()
+    if (content == ""):
+        return {}
+    json_obj = json.loads(content)
+    return json_obj
+
+
+def saveJsonToFile(json_obj, path):
+    with open(path, "w") as f:
+        f.truncate()
+        json.dump(json_obj, f, sort_keys=True, indent=4, separators=(',', ': '))

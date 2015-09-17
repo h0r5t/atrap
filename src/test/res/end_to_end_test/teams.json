@@ -1,0 +1,66 @@
+[
+    {
+      "team_id": 1333179,
+      "team_name": "Cloud9",
+      "players":
+                [
+                    {
+                      "player_id": 47434686,
+                      "player_name": "SVG",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 86726887,
+                      "player_name": "MSS",
+                      "player_position": "offlane"
+                    },
+                    {
+                      "player_id": 177648913,
+                      "player_name": "ritsu",
+                      "player_position": "carry"
+                    },
+                    {
+                      "player_id": 87196890,
+                      "player_name": "1437",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 31818853,
+                      "player_name": "brax",
+                      "player_position": "mid"
+                    }
+                ]
+    },
+    {
+      "team_id": 2183640,
+      "team_name": "Crown Crow",
+      "players":
+                [
+                    {
+                      "player_id": 156054802,
+                      "player_name": "MarusuManOP",
+                      "player_position": "carry"
+                    },
+                    {
+                      "player_id": 39795399,
+                      "player_name": "Suan",
+                      "player_position": "offlane"
+                    },
+                    {
+                      "player_id": 93223736,
+                      "player_name": "baseballdogs",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 63084395,
+                      "player_name": "toyomaruZ",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 128297882,
+                      "player_name": "suiminD",
+                      "player_position": "mid"
+                    }
+                ]
+    }
+]

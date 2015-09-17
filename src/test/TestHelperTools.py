@@ -11,5 +11,5 @@ class TestAtrapCrawler(unittest.TestCase):
 
     def test_getPlayersDir(self):
         atrap_dir = HelperTools.getParentDir(HelperTools.getParentDir(HelperTools.getParentDir(__file__)))
-        path = os.path.join(atrap_dir, "static", "players")
+        path = os.path.join(atrap_dir, "web", "live", "players")
         self.assertEqual(HelperTools.getPlayersDir(), path)

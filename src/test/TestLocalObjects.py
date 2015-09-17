@@ -1,5 +1,6 @@
 import unittest
 from core.LocalObjects import LocalPlayer
+from core import LocalObjects
 from core import HelperTools
 import os
 
@@ -23,7 +24,13 @@ class TestLocalObjects(unittest.TestCase):
         self.assertEqual(player_obj2.getAverageLHPM(), 8.42)
         self.assertEqual(player_obj2.getAverageTowerDamage(), 2333)
         self.assertEqual(player_obj2.getAverageHeroDamage(), 21000)
-        self.assertEqual(player_obj2.getGameCount(), 23)
+        self.assertEqual(player_obj2.getCounter(), 23)
 
     def test_AverageValues(self):
         pass
+
+    def test_updateAverage(self):
+        old_average = 0
+        count = 0
+        val = 50
+        self.assertEqual(LocalObjects.updateAverage(old_average, count, val), 50)

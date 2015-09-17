@@ -1,0 +1,165 @@
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='50840496'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='49921136'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='44285040'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='45217200'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='60290480'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='46126608'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='58000880'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='50591216'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='51299088'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='48166384'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='45151760'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='48301584'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='51705360'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='56690192'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='51246608'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='45942288'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+<MagicMock name='HelperTools.loadJsonFromFromFile().__getitem__().__add__().__add__().__iadd__().__radd__()' id='48741584'>
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)
+   processing match: 1790745997: Crown Crow vs DeToNator.
+      processing player: Crown Crow.MarusuManOP (carry)
+      processing player: Crown Crow.Suan (offlane)
+      processing player: Crown Crow.baseballdogs (support)
+      processing player: Crown Crow.toyomaruZ (support)
+      processing player: Crown Crow.suiminD (mid)

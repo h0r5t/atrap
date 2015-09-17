@@ -41,36 +41,23 @@ class Rating():
 
     def calculateTotalRating(self):
         # TODO rate after design
-        pass
+        self.rating_data["total_rating"] = 50
 
-
-class LocalPlayerRating(Rating):
-
-    def __init__(self, local_player_instance, avg_values):
-        self.player = local_player_instance
-        self.calculateKDARating(self.player.getAverageKDA(), avg_values.getAverageKDA())
-        self.calculateGPMRating(self.player.getAverageGPM(), avg_values.getAverageGPM())
-        self.calculateXPMRating(self.player.getAverageXPM(), avg_values.getAverageXPM())
-        self.calculateLHPMRating(self.player.getAverageLHPM(), avg_values.getAverageLHPM())
-        self.calculateTDRating(self.player.getAverageTowerDamage(), avg_values.getAverageTowerDamage())
-        self.calculateGPMRating(self.player.getAverageHeroDamge(), avg_values.getAverageHeroDamage())
-
-        self.calculateFarmRating()
-        self.calculateFightRating()
-        self.calculatePushRating()
-        self.calculateTotalRating()
+    def getRatings(self):
+        return self.rating_data
 
 
 class MatchDetailsPlayerRating(Rating):
 
     def __init__(self, match_details_player_instance, avg_values):
+        Rating.__init__(self)
         self.player = match_details_player_instance
         self.calculateKDARating(self.player.getKDA(), avg_values.getAverageKDA())
         self.calculateGPMRating(self.player.getGPM(), avg_values.getAverageGPM())
         self.calculateXPMRating(self.player.getXPM(), avg_values.getAverageXPM())
         self.calculateLHPMRating(self.player.getLastHitsPerMinute(), avg_values.getAverageLHPM())
-        self.calculateTDRating(self.player.getAverageTowerDamage(), avg_values.getAverageTowerDamage())
-        self.calculateGPMRating(self.player.getAverageHeroDamge(), avg_values.getAverageHeroDamage())
+        self.calculateTDRating(self.player.getTowerDamage(), avg_values.getAverageTowerDamage())
+        self.calculateHDRating(self.player.getHeroDamage(), avg_values.getAverageHeroDamage())
 
         self.calculateFarmRating()
         self.calculateFightRating()

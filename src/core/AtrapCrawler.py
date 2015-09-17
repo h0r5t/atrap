@@ -2,13 +2,18 @@ from core.Dota2ApiWrapper import Dota2ApiWrapper
 from core import HelperTools
 import time
 from core.MatchProcessor import MatchProcessor
+import os
+import json
 
 
 class AtrapCrawler():
     def __init__(self):
         self.configMap = self.loadConfig()
+
         api_key = self.loadApiKey()
         self.api_wrapper = Dota2ApiWrapper(api_key)
+
+        self.stopBool = False
 
         # list of match IDs
         self.oldRelevantGames = []
@@ -16,29 +21,37 @@ class AtrapCrawler():
         # contains list of {"countdown": <cd>, "match_id": <match_id>}
         self.finishedGames = []
 
+        HelperTools.log("crawler started")
+
+    def stop(self):
+        self.stopBool = True
+
     def start(self):
         while(True):
-
-            # load static content
             teamsList = self.loadTeams()
             team_id_list = self.genereateTeamIDList(teamsList)
 
-            currentRelevantGames = self.getRelevantLiveLeagueGames(team_id_list)
-            new_finished_games = self.findFinishedGames(currentRelevantGames)
-            self.finishedGames.append(new_finished_games)
+            try:
+                currentRelevantGames = self.getRelevantLiveLeagueGames(team_id_list)
+            except ApiException:
+                currentRelevantGames = self.oldRelevantGames
+
+            new_finished_games = self.findFinishedGames(self.oldRelevantGames, currentRelevantGames)
+            if len(new_finished_games) > 0:
+                self.finishedGames.extend(new_finished_games)
 
             # process matches
             match_processor = MatchProcessor()
             processed_matches = []
             for obj in self.finishedGames:
-                if (int(obj["countdown"]) <= 0):
+                if obj["countdown"] <= 0:
                     match_details_obj = self.api_wrapper.getMatchDetails(obj["match_id"])
-                    if len(match_details_obj) == 0:
+                    if match_details_obj.isEmpty():
                         # match data is not available yet
                         obj["countdown"] = int(self.configMap["match_parser_countdown"])
                         continue
                     match_processor.process(match_details_obj)
-                    processed_matches.append(match_details_obj)
+                    processed_matches.append(obj)
 
             # delete all parsed matches from finishedGames list
             for game in processed_matches:
@@ -46,8 +59,12 @@ class AtrapCrawler():
 
             # iterate cooldowns of finished gamess
             for obj in self.finishedGames:
-                countdown = int(obj["countdown"])
+                countdown = obj["countdown"]
                 obj["countdown"] = countdown - int(self.configMap["crawler_sleep_time"])
+
+            if self.stopBool:
+                HelperTools.log("stop message received")
+                break
 
             time.sleep(int(self.configMap["crawler_sleep_time"]))
 
@@ -58,6 +75,7 @@ class AtrapCrawler():
                 # relevant game is finished, can be parsed
                 obj = {"countdown": int(self.configMap["match_parser_countdown"]), "match_id": match_id}
                 finished_games.append(obj)
+                HelperTools.log("a relevant game just went live: " + str(match_id))
 
         self.oldRelevantGames = current_relevant_games
         return finished_games
@@ -66,6 +84,9 @@ class AtrapCrawler():
         # IDs need to be in string format
         relevantGames = []
         liveGames = self.api_wrapper.getLiveLeagueGames()
+
+        if liveGames is None:
+            raise ApiException("api exception")
 
         for game in liveGames:
             radiant_team = game.getRadiantTeam()
@@ -89,7 +110,7 @@ class AtrapCrawler():
 
     def loadTeams(self):
         teamsFile = HelperTools.getTeamsFile()
-        teams_json = HelperTools.loadJsonFromFile(teamsFile)
+        teams_json = loadJsonFromFile(teamsFile)
         return teams_json
 
     def genereateTeamIDList(self, json_team_list):
@@ -103,6 +124,17 @@ class AtrapCrawler():
         key = key_file.read().strip()
         return key
 
-if __name__ == '__main__':
-    crawler = AtrapCrawler()
-    crawler.start()
+
+class ApiException(Exception):
+    pass
+
+
+def loadJsonFromFile(path):
+    if not os.path.isfile(path):
+        return {}
+    sample = open(path, encoding="utf8")
+    content = sample.read().strip()
+    if (content == ""):
+        return {}
+    json_obj = json.loads(content)
+    return json_obj

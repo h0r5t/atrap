@@ -37,7 +37,7 @@ class TestAtrapCrawler(unittest.TestCase):
     def test_loadTeams(self):
         # crawler = AtrapCrawler()
         # teams_json = crawler.loadTeams()
-        self.assertTrue(True)
+        pass
 
     def test_genereateTeamIDList(self):
         crawler = AtrapCrawler()

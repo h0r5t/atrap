@@ -4,7 +4,6 @@ import json
 import codecs
 from core.ApiObjects import LiveLeagueGamesList
 from core.ApiObjects import MatchDetails
-import Test
 
 
 class Dota2ApiWrapper():
@@ -24,11 +23,17 @@ class Dota2ApiWrapper():
 
     def getLiveLeagueGames(self):
         url = self.GET_LIVE_LEAGUE_GAMES + self.key_string
-        return LiveLeagueGamesList(self.getJsonObjectForApiCall(url)).getGames()
+        obj = self.getJsonObjectForApiCall(url)
+        if len(obj) == 0:
+            return None
+        return LiveLeagueGamesList(obj).getGames()
 
     def getMatchDetails(self, match_id):
         url = self.GET_MATCH_DETAILS + self.key_string + "&match_id=" + str(match_id)
-        return MatchDetails(self.getJsonObjectForApiCall(url))
+        obj = self.getJsonObjectForApiCall(url)
+        if len(obj) == 0:
+            return None
+        return MatchDetails(obj)
 
     def getJsonObjectForApiCall(self, url):
         try:
@@ -36,7 +41,7 @@ class Dota2ApiWrapper():
             reader = codecs.getreader("utf-8")
             json_object = json.load(reader(json_response))
         except:
-            Test.warning("error loading json from url: " + str(url))
+            # Test.warning("error loading json from url: " + str(url))
             return {}
 
         return json_object

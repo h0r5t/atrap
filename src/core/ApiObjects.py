@@ -1,3 +1,7 @@
+from core import HelperTools
+import json
+
+
 class ApiObject():
 
     def __init__(self, json_object):
@@ -54,6 +58,16 @@ class MatchDetails(ApiObject):
         self.players = []
         for player in self.json_object["players"]:
             self.players.append(MatchDetailsPlayer(player, self.getMatchLength()))
+            del player["ability_upgrades"]
+
+        # stuff that is not needed
+        del self.json_object["picks_bans"]
+        self.match_file = HelperTools.getMatchFile(self.getMatchID())
+
+    def isEmpty(self):
+        if "error" in self.json_object:
+            return True
+        return False
 
     def getPlayers(self):
         return self.players
@@ -67,8 +81,17 @@ class MatchDetails(ApiObject):
     def getRadiantWin(self):
         return bool(self.json_object["radiant_win"])
 
+    def getRadiantTeamName(self):
+        return self.json_object["radiant_name"]
+
+    def getDireTeamName(self):
+        return self.json_object["dire_name"]
+
     def getMatchLength(self):
         return (self.json_object["duration"] / 60)
+
+    def save(self):
+        saveJsonToFile(self.json_object, self.match_file)
 
 
 class MatchDetailsPlayer(ApiObject):
@@ -125,3 +148,9 @@ class MatchDetailsPlayer(ApiObject):
 
     def getHeroHealing(self):
         return (self.json_object["hero_healing"])
+
+
+def saveJsonToFile(json_obj, path):
+    with open(path, "w") as f:
+        f.truncate()
+        json.dump(json_obj, f, sort_keys=True, indent=4, separators=(',', ': '))
