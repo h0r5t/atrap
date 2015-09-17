@@ -70,12 +70,18 @@ class AtrapCrawler():
 
     def findFinishedGames(self, old_relevant_games, current_relevant_games):
         finished_games = []
+
+        for match_id in current_relevant_games:
+            if match_id not in old_relevant_games:
+                # relevant game just went live
+                HelperTools.log("a relevant game just went live: " + str(match_id))
+
         for match_id in old_relevant_games:
             if match_id not in current_relevant_games:
                 # relevant game is finished, can be parsed
                 obj = {"countdown": int(self.configMap["match_parser_countdown"]), "match_id": match_id}
                 finished_games.append(obj)
-                HelperTools.log("a relevant game just went live: " + str(match_id))
+                HelperTools.log("a relevant game just finished: " + str(match_id))
 
         self.oldRelevantGames = current_relevant_games
         return finished_games

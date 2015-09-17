@@ -141,13 +141,13 @@ class MatchDetailsPlayer(ApiObject):
         return (self.json_object["xp_per_min"])
 
     def getTowerDamage(self):
-        return (self.json_object["tower_damage"])
+        return (self.json_object["tower_damage"] / self.match_length)
 
     def getHeroDamage(self):
-        return (self.json_object["hero_damage"])
+        return (self.json_object["hero_damage"] / self.match_length)
 
     def getHeroHealing(self):
-        return (self.json_object["hero_healing"])
+        return (self.json_object["hero_healing"]/ self.match_length)
 
 
 def saveJsonToFile(json_obj, path):

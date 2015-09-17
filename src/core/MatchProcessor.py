@@ -1,9 +1,7 @@
 from core import HelperTools
-import os
 from core.LocalObjects import LocalPlayer
 from core.LocalObjects import AverageValues
 from core.LocalObjects import TeamsFile
-import logging
 
 
 class MatchProcessor():
@@ -31,8 +29,6 @@ class MatchProcessor():
         player_info = local_player.getTeamName() + "." + local_player.getPlayerName()
         player_info += " (" + local_player.getPlayerPosition() + ")"
         HelperTools.log("      processing player: " + player_info)
-        log = logging.getLogger("EndToEndTest")
-        log.debug(local_player.getPlayerPosition())
 
         avg_values = AverageValues(local_player.getPlayerPosition())
 

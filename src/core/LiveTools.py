@@ -10,23 +10,24 @@ def showLiveLeagueGames(api_key):
     while True:
         games_list = api.getLiveLeagueGames()
         game_ids = []
-        for game in games_list:
-            game_ids.append(int(game.getMatchID()))
-            if int(game.getMatchID()) not in live_games:
-                radiant_team = game.getRadiantTeam()
-                dire_team = game.getDireTeam()
-                a = ""
-                if radiant_team is not None:
-                    a += radiant_team.getTeamName()
-                else:
-                    a += "[Unknown]"
-                a += " vs "
-                if dire_team is not None:
-                    a += dire_team.getTeamName()
-                else:
-                    a += "[Unknown]"
-                print("+   " + a)
-                live_games[int(game.getMatchID())] = a
+        if games_list is not None:
+            for game in games_list:
+                game_ids.append(int(game.getMatchID()))
+                if int(game.getMatchID()) not in live_games:
+                    radiant_team = game.getRadiantTeam()
+                    dire_team = game.getDireTeam()
+                    a = ""
+                    if radiant_team is not None:
+                        a += radiant_team.getTeamName()
+                    else:
+                        a += "[Unknown]"
+                    a += " vs "
+                    if dire_team is not None:
+                        a += dire_team.getTeamName()
+                    else:
+                        a += "[Unknown]"
+                    print("+   " + a)
+                    live_games[int(game.getMatchID())] = a
 
         to_delete = []
         for key in live_games:

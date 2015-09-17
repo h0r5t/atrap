@@ -28,16 +28,16 @@ class LocalPlayer():
             self.json_player_data["average_xpm"] = 0
             self.json_player_data["average_tower_damage"] = 0
             self.json_player_data["average_hero_damage"] = 0
-            self.json_player_data["average_kda_rating"] = 0
-            self.json_player_data["average_gpm_rating"] = 0
-            self.json_player_data["average_lhpm_rating"] = 0
-            self.json_player_data["average_xpm_rating"] = 0
-            self.json_player_data["average_td_rating"] = 0
-            self.json_player_data["average_hd_rating"] = 0
-            self.json_player_data["average_fight_rating"] = 0
-            self.json_player_data["average_push_rating"] = 0
-            self.json_player_data["average_farm_rating"] = 0
-            self.json_player_data["average_total_rating"] = 0
+            self.json_player_data["average_kda_rating"] = 50
+            self.json_player_data["average_gpm_rating"] = 50
+            self.json_player_data["average_lhpm_rating"] = 50
+            self.json_player_data["average_xpm_rating"] = 50
+            self.json_player_data["average_td_rating"] = 50
+            self.json_player_data["average_hd_rating"] = 50
+            self.json_player_data["average_fight_rating"] = 50
+            self.json_player_data["average_push_rating"] = 50
+            self.json_player_data["average_farm_rating"] = 50
+            self.json_player_data["average_total_rating"] = 50
             self.json_player_data["counter"] = 0
             self.json_player_data["10_last_matches"] = []
 
@@ -50,19 +50,18 @@ class LocalPlayer():
         return False
 
     def applyMatchDetails(self, match_details_player, avg_values_instance):
-        HelperTools.log("           player update:")
         self.updateAverageWithName("average_kda", match_details_player.getKDA())
-        HelperTools.log("           average_kda: " + str(self.getAverageKDA()))
+        HelperTools.log("           kda: " + str(match_details_player.getKDA()))
         self.updateAverageWithName("average_gpm", match_details_player.getGPM())
-        HelperTools.log("           average_gpm: " + str(self.getAverageGPM()))
+        HelperTools.log("           gpm: " + str(match_details_player.getGPM()))
         self.updateAverageWithName("average_lh_per_min", match_details_player.getLastHitsPerMinute())
-        HelperTools.log("           average_lhpm: " + str(self.getAverageLHPM()))
+        HelperTools.log("           lhpm: " + str(match_details_player.getLastHitsPerMinute()))
         self.updateAverageWithName("average_xpm", match_details_player.getXPM())
-        HelperTools.log("           average_xpm: " + str(self.getAverageXPM()))
+        HelperTools.log("           xpm: " + str(match_details_player.getXPM()))
         self.updateAverageWithName("average_hero_damage", match_details_player.getHeroDamage())
-        HelperTools.log("           average_hd: " + str(self.getAverageHeroDamage()))
+        HelperTools.log("           hd: " + str(match_details_player.getHeroDamage()))
         self.updateAverageWithName("average_tower_damage", match_details_player.getTowerDamage())
-        HelperTools.log("           average_td: " + str(self.getAverageTowerDamage()))
+        HelperTools.log("           td: " + str(match_details_player.getTowerDamage()))
 
         rating = MatchDetailsPlayerRating(match_details_player, avg_values_instance)
         self.applyRating(rating)
@@ -72,15 +71,26 @@ class LocalPlayer():
     def applyRating(self, rating):
         rating_data = rating.getRatings()
         self.updateAverageWithName("average_kda_rating", rating_data["kda_rating"])
+        HelperTools.log("           kda_rating: " + str(rating_data["kda_rating"]))
         self.updateAverageWithName("average_gpm_rating", rating_data["gpm_rating"])
+        HelperTools.log("           gpm_rating: " + str(rating_data["gpm_rating"]))
         self.updateAverageWithName("average_lhpm_rating", rating_data["lhpm_rating"])
+        HelperTools.log("           lhpm_rating: " + str(rating_data["lhpm_rating"]))
         self.updateAverageWithName("average_xpm_rating", rating_data["xpm_rating"])
+        HelperTools.log("           xpm_rating: " + str(rating_data["xpm_rating"]))
         self.updateAverageWithName("average_hd_rating", rating_data["hd_rating"])
+        HelperTools.log("           hd_rating: " + str(rating_data["hd_rating"]))
         self.updateAverageWithName("average_td_rating", rating_data["td_rating"])
+        HelperTools.log("           td_rating: " + str(rating_data["td_rating"]))
         self.updateAverageWithName("average_fight_rating", rating_data["fight_rating"])
+        HelperTools.log("           fight_rating: " + str(rating_data["fight_rating"]))
         self.updateAverageWithName("average_push_rating", rating_data["push_rating"])
+        HelperTools.log("           push_rating: " + str(rating_data["push_rating"]))
         self.updateAverageWithName("average_farm_rating", rating_data["farm_rating"])
+        HelperTools.log("           farm_rating: " + str(rating_data["farm_rating"]))
         self.updateAverageWithName("average_total_rating", rating_data["total_rating"])
+        HelperTools.log("           total_rating: " + str(rating_data["total_rating"]))
+        HelperTools.log("")
 
     def updateAverageWithName(self, name, value):
         old_avg = int(self.json_player_data[name])
@@ -160,18 +170,22 @@ class LocalPlayer():
 class AverageValues():
 
     def __init__(self, player_position):
+        self.player_pos = player_position
         self.avg_values_file = os.path.join(HelperTools.getWebDir(), "avg", player_position, "average_values.json")
         self.json_avg_data = loadJsonFromFile(self.avg_values_file)
 
         if self.isEmpty():
             # instantiate avg file
-            self.json_avg_data["average_kda"] = 0
-            self.json_avg_data["average_gpm"] = 0
-            self.json_avg_data["average_lh_per_min"] = 0
-            self.json_avg_data["average_xpm"] = 0
-            self.json_avg_data["average_tower_damage"] = 0
-            self.json_avg_data["average_hero_damage"] = 0
+            self.json_avg_data["average_kda"] = 2.5
+            self.json_avg_data["average_gpm"] = 400
+            self.json_avg_data["average_lh_per_min"] = 5
+            self.json_avg_data["average_xpm"] = 400
+            self.json_avg_data["average_tower_damage"] = 25
+            self.json_avg_data["average_hero_damage"] = 250
             self.json_avg_data["counter"] = 0
+
+    def getPlayerPosition(self):
+        return self.player_pos
 
     def isEmpty(self):
         if len(self.json_avg_data) == 0:
