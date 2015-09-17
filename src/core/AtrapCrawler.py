@@ -18,7 +18,7 @@ class AtrapCrawler():
         # list of match IDs
         self.oldRelevantGames = []
 
-        # contains list of {"countdown": <cd>, "match_id": <match_id>}
+        # contains list of {"countdown": <cd>, "match_id": <match_id>, "age": <age>s}
         self.finishedGames = []
 
         HelperTools.log("crawler started")
@@ -43,15 +43,24 @@ class AtrapCrawler():
             # process matches
             match_processor = MatchProcessor()
             processed_matches = []
+            to_remove_finished_games = []  # games not up after 2hrs, can remove
             for obj in self.finishedGames:
                 if obj["countdown"] <= 0:
                     match_details_obj = self.api_wrapper.getMatchDetails(obj["match_id"])
                     if match_details_obj.isEmpty():
                         # match data is not available yet
+                        obj["age"] = (obj["age"] + 1)
+                        if obj["age"] > 60:
+                            to_remove_finished_games.append(obj)
                         obj["countdown"] = int(self.configMap["match_parser_countdown"])
                         continue
                     match_processor.process(match_details_obj)
                     processed_matches.append(obj)
+
+            # delete finished games older than 2hrs
+            for obj in to_remove_finished_games:
+                HelperTools.log("gave up on match " + obj["match_id"])
+                self.finishedGames.remove(obj)
 
             # delete all parsed matches from finishedGames list
             for game in processed_matches:
@@ -79,7 +88,7 @@ class AtrapCrawler():
         for match_id in old_relevant_games:
             if match_id not in current_relevant_games:
                 # relevant game is finished, can be parsed
-                obj = {"countdown": int(self.configMap["match_parser_countdown"]), "match_id": match_id}
+                obj = {"countdown": int(self.configMap["match_parser_countdown"]), "match_id": match_id, "age": 0}
                 finished_games.append(obj)
                 HelperTools.log("a relevant game just finished: " + str(match_id))
 

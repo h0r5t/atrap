@@ -58,7 +58,7 @@
                     },
                     {
                       "player_id": 86751819,
-                        "player_name": "swiftending",
+                      "player_name": "swiftending",
                       "player_position": "carry"
                     }
                 ]
@@ -90,7 +90,7 @@
                     },
                     {
                       "player_id": 117421467,
-                        "player_name": "SoNNeikO",
+                      "player_name": "SoNNeikO",
                       "player_position": "support"
                     }
                 ]
@@ -122,8 +122,72 @@
                     },
                     {
                       "player_id": 102732874,
-                        "player_name": "eresloco",
+                      "player_name": "eresloco",
                       "player_position": "offlane"
+                    }
+                ]
+    },
+    {
+      "team_id": 3,
+      "team_name": "compLexity'",
+      "players":
+                [
+                    {
+                      "player_id": 38515149,
+                      "player_name": "wayto",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 49317728,
+                      "player_name": "swindlezz",
+                      "player_position": "mid"
+                    },
+                    {
+                      "player_id": 102823997,
+                      "player_name": "MJW",
+                      "player_position": "offlane"
+                    },
+                    {
+                      "player_id": 87293485,
+                      "player_name": "Zyzzy",
+                      "player_position": "carry"
+                    },
+                    {
+                      "player_id": 50828662,
+                      "player_name": "Zfreek",
+                      "player_position": "support"
+                    }
+                ]
+    },
+    {
+      "team_id": 2059672,
+      "team_name": "FireDota'",
+      "players":
+                [
+                    {
+                      "player_id": 87360406,
+                      "player_name": "Jeyo",
+                      "player_position": "carry"
+                    },
+                    {
+                      "player_id": 115141430,
+                      "player_name": "747",
+                      "player_position": "mid"
+                    },
+                    {
+                      "player_id": 84429681,
+                      "player_name": "Moo",
+                      "player_position": "offlane"
+                    },
+                    {
+                      "player_id": 41470731,
+                      "player_name": "FLUFFNSTUFF",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 21604967,
+                      "player_name": "whiteBeard",
+                      "player_position": "support"
                     }
                 ]
     }
