@@ -63,7 +63,6 @@ class MatchDetails(ApiObject):
         # stuff that is not needed
         del self.json_object["picks_bans"]
         self.match_file = HelperTools.getMatchFile(self.getMatchID())
-        print(self.match_file)
 
     def isEmpty(self):
         if "error" in self.json_object:

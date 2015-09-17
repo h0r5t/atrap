@@ -27,10 +27,14 @@ class EndToEndTest(unittest.TestCase):
         for f in os.listdir(fake_matches_dir):
             os.remove(os.path.join(fake_matches_dir, f))
 
-        os.remove(fake_avg_carry)
-        os.remove(fake_avg_sup)
-        os.remove(fake_avg_mid)
-        os.remove(fake_avg_off)
+        if os.path.exists(fake_avg_carry):
+            os.remove(fake_avg_carry)
+        if os.path.exists(fake_avg_sup):
+            os.remove(fake_avg_sup)
+        if os.path.exists(fake_avg_mid):
+            os.remove(fake_avg_mid)
+        if os.path.exists(fake_avg_off):
+            os.remove(fake_avg_off)
 
     @patch("core.AtrapCrawler.HelperTools")
     @patch("core.LocalObjects.HelperTools")
@@ -65,7 +69,7 @@ class EndToEndTest(unittest.TestCase):
         HelperToolsMock2.getWebDir = MagicMock(return_value=fake_web_dir)
         HelperToolsMock2.log = myLog
 
-        HelperToolsMock3.HelperToolsMock2.getMatchFile = MagicMock(return_value=fake_match_file)
+        HelperToolsMock3.getMatchFile = MagicMock(return_value=fake_match_file)
 
         crawler = AtrapCrawler()
 
