@@ -4,10 +4,14 @@ import time
 from core.MatchProcessor import MatchProcessor
 import os
 import json
+from core.Hooks import PlayerListHook
 
 
 class AtrapCrawler():
     def __init__(self):
+        self.hooks = []
+        self.hooks.append(PlayerListHook())
+
         self.configMap = self.loadConfig()
 
         api_key = self.loadApiKey()
@@ -70,6 +74,9 @@ class AtrapCrawler():
             for obj in self.finishedGames:
                 countdown = obj["countdown"]
                 obj["countdown"] = countdown - int(self.configMap["crawler_sleep_time"])
+
+            for hook in self.hooks:
+                hook.update()
 
             if self.stopBool:
                 HelperTools.log("stop message received")

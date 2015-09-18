@@ -19,6 +19,7 @@ class MatchProcessor():
         self.processMatch(match_details_instance)
 
         HelperTools.log("   match processed.")
+        HelperTools.log("")
 
     def loadLocalPlayer(self, player_id_string):
         if TeamsFile().idExists(player_id_string):

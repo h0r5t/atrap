@@ -1,1 +1,375 @@
 crawler started
+crawler started
+a relevant game just went live: 1800643648
+crawler started
+a relevant game just went live: 1800643648
+a relevant game just finished: 1800643648
+   processing match: 1800643648: compLexity Gaming vs FireDota
+      processing player: compLexity'.swindlezz (mid)
+           kda: 2.8
+           gpm: 483
+           lhpm: 7.620790629575403
+           xpm: 356
+           hd: 182.2730600292826
+           td: 11.02489019033675
+           kda_rating: 57.49999999999999
+           gpm_rating: 62.45
+           lhpm_rating: 69.65592972181553
+           xpm_rating: 43.4
+           hd_rating: 43.22730600292826
+           td_rating: 36.02489019033675
+           fight_rating: 50.36365300146413
+           push_rating: 36.02489019033675
+           farm_rating: 52.925
+           total_rating: 48.520439238653005
+
+      processing player: compLexity'.Zyzzy (carry)
+           kda: 4.166666666666667
+           gpm: 504
+           lhpm: 6.43484626647145
+           xpm: 369
+           hd: 258.4480234260615
+           td: 32.36090775988287
+           kda_rating: 91.66666666666667
+           gpm_rating: 65.6
+           lhpm_rating: 60.76134699853587
+           xpm_rating: 45.35
+           hd_rating: 50.84480234260615
+           td_rating: 57.36090775988287
+           fight_rating: 71.25573450463641
+           push_rating: 57.36090775988287
+           farm_rating: 55.474999999999994
+           total_rating: 62.353066129819425
+
+      processing player: compLexity'.Zfreek (support)
+           kda: 1.3888888888888888
+           gpm: 240
+           lhpm: 1.3506588579795022
+           xpm: 266
+           hd: 79.86456808199122
+           td: 3.9860907759882873
+           kda_rating: 22.22222222222222
+           gpm_rating: 26.0
+           lhpm_rating: 22.629941434846266
+           xpm_rating: 29.900000000000002
+           hd_rating: 32.98645680819912
+           td_rating: 28.986090775988288
+           fight_rating: 27.604339515210672
+           push_rating: 28.986090775988288
+           farm_rating: 27.950000000000003
+           total_rating: 27.94982186432406
+
+      processing player: compLexity'.MJW (offlane)
+           kda: 3.0
+           gpm: 326
+           lhpm: 3.964128843338214
+           xpm: 330
+           hd: 120.0
+           td: 3.4809663250366034
+           kda_rating: 62.5
+           gpm_rating: 38.9
+           lhpm_rating: 42.230966325036604
+           xpm_rating: 39.5
+           hd_rating: 37.0
+           td_rating: 28.480966325036604
+           fight_rating: 49.75
+           push_rating: 28.480966325036604
+           farm_rating: 39.2
+           total_rating: 44.458096632503654
+
+      processing player: compLexity'.wayto (support)
+           kda: 2.0
+           gpm: 285
+           lhpm: 2.1522693997071745
+           xpm: 353
+           hd: 101.1896046852123
+           td: 2.8111273792093705
+           kda_rating: 65.27777777777777
+           gpm_rating: 56.75
+           lhpm_rating: 56.01207906295754
+           xpm_rating: 63.05
+           hd_rating: 52.13250366032211
+           td_rating: 48.825036603221086
+           fight_rating: 58.705140719049936
+           push_rating: 48.825036603221086
+           farm_rating: 59.9
+           total_rating: 56.96809175207417
+
+      processing player: FireDota'.Jeyo (carry)
+           kda: 5.833333333333333
+           gpm: 724
+           lhpm: 11.661786237188872
+           xpm: 355
+           hd: 272.3060029282577
+           td: 66.98389458272328
+           kda_rating: 91.66666666666666
+           gpm_rating: 83.0
+           lhpm_rating: 89.20204978038066
+           xpm_rating: 47.9
+           hd_rating: 51.38579795021962
+           td_rating: 84.6229868228404
+           fight_rating: 71.52623230844314
+           push_rating: 84.6229868228404
+           farm_rating: 65.45
+           total_rating: 73.63238897022939
+
+      processing player: FireDota'.whiteBeard (support)
+           kda: 5.0
+           gpm: 394
+           lhpm: 4.1398243045387995
+           xpm: 363
+           hd: 235.15739385065888
+           td: 25.278184480234263
+           kda_rating: 100
+           gpm_rating: 69.725
+           lhpm_rating: 69.2276720351391
+           xpm_rating: 58.025
+           hd_rating: 64.50625915080528
+           td_rating: 72.37262079062958
+           fight_rating: 82.25312957540264
+           push_rating: 72.37262079062958
+           farm_rating: 63.875
+           total_rating: 76.6014019033675
+
+      processing player: FireDota'.FLUFFNSTUFF (support)
+           kda: 2.3333333333333335
+           gpm: 231
+           lhpm: 0.7686676427525623
+           xpm: 306
+           hd: 81.76427525622255
+           td: 0.58199121522694
+           kda_rating: 50.0
+           gpm_rating: 38.75
+           lhpm_rating: 40.415446559297216
+           xpm_rating: 46.85
+           hd_rating: 44.33784773060029
+           td_rating: 40.82259638848218
+           fight_rating: 47.168923865300144
+           push_rating: 40.82259638848218
+           farm_rating: 42.8
+           total_rating: 45.02587359687652
+
+      processing player: FireDota'.747 (mid)
+           kda: 2.8
+           gpm: 523
+           lhpm: 7.225475841874085
+           xpm: 357
+           hd: 207.2657393850659
+           td: 47.42679355783309
+           kda_rating: 50.0
+           gpm_rating: 56.0
+           lhpm_rating: 47.03513909224012
+           xpm_rating: 50.15
+           hd_rating: 52.49926793557833
+           td_rating: 86.40190336749635
+           fight_rating: 51.249633967789165
+           push_rating: 86.40190336749635
+           farm_rating: 53.075
+           total_rating: 59.010234260614936
+
+      processing player: FireDota'.Moo (offlane)
+           kda: 6.4
+           gpm: 275
+           lhpm: 1.383601756954612
+           xpm: 355
+           hd: 120.81259150805272
+           td: 0.24158125915080528
+           kda_rating: 100
+           gpm_rating: 42.35
+           lhpm_rating: 30.646046852122986
+           xpm_rating: 53.75
+           hd_rating: 50.08125915080527
+           td_rating: 46.7606149341142
+           fight_rating: 75.04062957540263
+           push_rating: 46.7606149341142
+           farm_rating: 48.05
+           total_rating: 64.115439238653
+
+   match processed.
+a relevant game just went live: 1800741716
+a relevant game just finished: 1800741716
+   processing match: 1800741716: compLexity Gaming vs FireDota
+      processing player: compLexity'.swindlezz (mid)
+           kda: 1.4166666666666667
+           gpm: 532
+           lhpm: 8.041060735671513
+           xpm: 554
+           hd: 306.0051325919589
+           td: 30.367835757057314
+           kda_rating: 25.41666666666667
+           gpm_rating: 54.35
+           lhpm_rating: 56.96242111050852
+           xpm_rating: 79.625
+           hd_rating: 61.137226289942596
+           td_rating: 51.15443897814077
+           fight_rating: 43.27694647830464
+           push_rating: 51.15443897814077
+           farm_rating: 66.9875
+           total_rating: 54.336666386950014
+
+      processing player: compLexity'.Zyzzy (carry)
+           kda: 2.6666666666666665
+           gpm: 428
+           lhpm: 6.381522668947818
+           xpm: 485
+           hd: 257.4850299401198
+           td: 26.501283147989735
+           kda_rating: 0
+           gpm_rating: 22.1
+           lhpm_rating: 31.629721627650373
+           xpm_rating: 68.45
+           hd_rating: 49.23320284759909
+           td_rating: 27.009335856628095
+           fight_rating: 24.616601423799544
+           push_rating: 27.009335856628095
+           farm_rating: 45.275000000000006
+           total_rating: 31.531941326508246
+
+      processing player: compLexity'.wayto (support)
+           kda: 1.1538461538461537
+           gpm: 272
+           lhpm: 2.001710863986313
+           xpm: 258
+           hd: 165.49187339606502
+           td: 7.835757057313943
+           kda_rating: 26.762820512820507
+           gpm_rating: 47.7125
+           lhpm_rating: 52.32157964973629
+           xpm_rating: 40.4375
+           hd_rating: 54.155080458200935
+           td_rating: 50.94025925350721
+           fight_rating: 40.45895048551072
+           push_rating: 50.94025925350721
+           farm_rating: 44.075
+           total_rating: 43.27842214200787
+
+      processing player: compLexity'.Zfreek (support)
+           kda: 1.3529411764705883
+           gpm: 325
+           lhpm: 3.147989734816082
+           xpm: 278
+           hd: 411.22326775021384
+           td: 2.3438836612489307
+           kda_rating: 38.05429864253394
+           gpm_rating: 56.15
+           lhpm_rating: 64.60735671514115
+           xpm_rating: 45.440000000000005
+           hd_rating: 77.97248930710009
+           td_rating: 45.97673224978614
+           fight_rating: 58.01339397481701
+           push_rating: 45.97673224978614
+           farm_rating: 50.795
+           total_rating: 54.162382834847435
+
+      processing player: compLexity'.MJW (offlane)
+           kda: 0.9166666666666666
+           gpm: 275
+           lhpm: 0.5132591958939264
+           xpm: 278
+           hd: 110.02566295979469
+           td: 0.0
+           kda_rating: 0
+           gpm_rating: 46.175
+           lhpm_rating: 37.41093738062466
+           xpm_rating: 40.325
+           hd_rating: 48.96193672057683
+           td_rating: 48.3792093704246
+           fight_rating: 24.480968360288415
+           push_rating: 48.3792093704246
+           farm_rating: 43.25
+           total_rating: 32.50150195321551
+
+      processing player: FireDota'.Jeyo (carry)
+           kda: 17.5
+           gpm: 715
+           lhpm: 10.025662959794696
+           xpm: 554
+           hd: 549.7519247219846
+           td: 138.93926432848588
+           kda_rating: 100
+           gpm_rating: 74.45
+           lhpm_rating: 69.23866552609067
+           xpm_rating: 72.65
+           hd_rating: 78.72569147419446
+           td_rating: 100
+           fight_rating: 89.36284573709723
+           push_rating: 100
+           farm_rating: 73.55000000000001
+           total_rating: 87.8101382948389
+
+      processing player: FireDota'.whiteBeard (support)
+           kda: 2.5454545454545454
+           gpm: 313
+           lhpm: 1.4029084687767321
+           xpm: 465
+           hd: 135.00427715996577
+           td: 10.12831479897348
+           kda_rating: 87.16577540106951
+           gpm_rating: 53.325
+           lhpm_rating: 50.33682634730539
+           xpm_rating: 74.3
+           hd_rating: 45.73003992015968
+           td_rating: 54.73766752209866
+           fight_rating: 66.44790766061459
+           push_rating: 54.73766752209866
+           farm_rating: 63.8125
+           total_rating: 63.57877810078848
+
+      processing player: FireDota'.FLUFFNSTUFF (support)
+           kda: 2.090909090909091
+           gpm: 262
+           lhpm: 0.39349871685201027
+           xpm: 298
+           hd: 95.14114627887082
+           td: 0.0
+           kda_rating: 71.75324675324676
+           gpm_rating: 45.30714285714286
+           lhpm_rating: 45.01955273127215
+           xpm_rating: 45.778571428571425
+           hd_rating: 42.41405352560186
+           td_rating: 44.267383600146644
+           fight_rating: 57.08365013942431
+           push_rating: 44.267383600146644
+           farm_rating: 45.542857142857144
+           total_rating: 52.21223823225534
+
+      processing player: FireDota'.747 (mid)
+           kda: 6.2
+           gpm: 643
+           lhpm: 7.288280581693755
+           xpm: 556
+           hd: 365.748502994012
+           td: 82.7715996578272
+           kda_rating: 100
+           gpm_rating: 69.55000000000001
+           lhpm_rating: 49.55945252352437
+           xpm_rating: 70.1
+           hd_rating: 63.44134587966923
+           td_rating: 100
+           fight_rating: 81.72067293983461
+           push_rating: 100
+           farm_rating: 69.825
+           total_rating: 80.61826917593385
+
+      processing player: FireDota'.Moo (offlane)
+           kda: 6.5
+           gpm: 356
+           lhpm: 2.3609923011120615
+           xpm: 485
+           hd: 128.33190761334473
+           td: 0.8896492728828058
+           kda_rating: 100
+           gpm_rating: 59.65
+           lhpm_rating: 56.42429426860564
+           xpm_rating: 74.64999999999999
+           hd_rating: 51.16566866267465
+           td_rating: 50.22298260621614
+           fight_rating: 75.58283433133732
+           push_rating: 50.22298260621614
+           farm_rating: 67.14999999999999
+           total_rating: 70.516998859424
+
+   match processed.
+crawler started
+crawler started
+crawler started
