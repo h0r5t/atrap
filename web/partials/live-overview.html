@@ -1,2 +1,7 @@
 <h1>Overview</h1>
-{{playerData}}
+<div ng-repeat="(playerID, playerInfo) in playerData">
+  <div class="box">
+    <p>{{playerInfo.player_name}}</p>
+    <p>{{playerInfo.team_name}}</p>
+  </div>
+</div>
