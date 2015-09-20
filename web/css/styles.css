@@ -1,24 +1,36 @@
 body {
   font-family: "Open Sans", serif;
   background-color: #222;
-  color: #3D3D3D;
+  color: #000000;
+  overflow-x: hidden;
 }
 
 a {
   color: inherit;
-} 
+}
 
 .full-width-bar {
   text-align: center;
+  margin: 0 -9999rem;
+  padding: 0.25rem 9999rem;
   margin-top: 25px;
   margin-bottom: 50px;
   background-color: #00BC8C;
+}
+
+
+.player-section {
+  display: block;
+  margin-left: 75px;
+  margin-right: auto;
 }
 
 .box {
   display: block;
   overflow: auto;
   border-radius: 25px;
+  border-style: solid;
+  border-width: 7px;
   width: 175px;
   height: 250px;
   margin-right: 25px;
@@ -27,19 +39,25 @@ a {
   margin-top: 25px;
   float: left;
   background-color: #3D3D3D;
-  box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px black;
   cursor: pointer;
 }
 
-.player-section {
-  display: block;
-  margin-left: 75px;
-  margin-right: auto;
-}
-
-.info-line {
+.info-line-name {
   text-align: center;
   background-color: #00BC8C;
+}
+
+.info-line-team {
+  text-align: center;
+  font-size: 12;
+  background-color: #00BC8C;
+}
+
+.info-line-pos {
+  text-align: center;
+  font-size: 10;
+  color: black;
 }
 
 .top-of-box {
@@ -61,6 +79,7 @@ a {
   margin-right: 10px;
   margin-top: 10px;
   padding-left: 10px;
+  margin-bottom: 5px;
   padding-right: 10px;
   border-radius: 10px;
   background: #3D3D3D;
@@ -96,5 +115,5 @@ a {
   width: 35px;
   height: 35px;
   margin-left: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
