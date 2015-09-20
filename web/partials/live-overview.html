@@ -1,7 +1,22 @@
-<h1>Overview</h1>
-<div ng-repeat="(playerID, playerInfo) in playerData">
-  <div class="box">
-    <p>{{playerInfo.player_name}}</p>
-    <p>{{playerInfo.team_name}}</p>
-  </div>
+
+<h1 class="full-width-bar pullDown">OVERVIEW</h1>
+<div ng-repeat="(playerID, playerInfo) in playerData" class="player-section">
+  <a ng-href="{{getPlayerUrl(playerID)}}">
+    <div class="box SlideRight" appClickToggle>
+      <div class="top-of-box">
+        <div class="images">
+          <img src="img/players/generic.png" class="player-img">
+          <img src="img/teams/generic.png" class="logo-img">
+        </div>
+        <div class="ratings">
+          <p class="rating-line">{{playerInfo.average_fight_rating | num}}</p>
+          <p class="rating-line">{{playerInfo.average_farm_rating | num}}</p>
+          <p class="rating-line">{{playerInfo.average_push_rating | num}}</p>
+          <p class="rating-line-total">{{playerInfo.average_total_rating | num}}</p>
+        </div>
+      </div>
+      <p class="info-line">{{playerInfo.player_name}}</p>
+      <p class="info-line">{{playerInfo.team_name}}</p>
+    </div>
+  </a>
 </div>

@@ -1,11 +1,100 @@
+body {
+  font-family: "Open Sans", serif;
+  background-color: #222;
+  color: #3D3D3D;
+}
+
+a {
+  color: inherit;
+} 
+
+.full-width-bar {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 50px;
+  background-color: #00BC8C;
+}
+
 .box {
-  display: inline-block;
-  width: 150px;
-  height: 200px;
-  margin: 10px;
+  display: block;
+  overflow: auto;
+  border-radius: 25px;
+  width: 175px;
+  height: 250px;
+  margin-right: 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  margin-top: 25px;
   float: left;
-  padding-left: 20px;
-  border-style: solid;
-  border-width: 1px;
-  background-color: #C0C0C0;
+  background-color: #3D3D3D;
+  box-shadow: 0 0 10px #000;
+  cursor: pointer;
+}
+
+.player-section {
+  display: block;
+  margin-left: 75px;
+  margin-right: auto;
+}
+
+.info-line {
+  text-align: center;
+  background-color: #00BC8C;
+}
+
+.top-of-box {
+  display: block;
+  overflow: auto;
+  background-color: #00BC8C;
+}
+
+.images {
+  display: block;
+  overflow: auto;
+  float: left;
+}
+
+.ratings {
+  display: block;
+  overflow: auto;
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  background: #3D3D3D;
+}
+
+.rating-line {
+  text-align: center;
+  font-size: 10;
+  color: white;
+}
+
+.rating-line-total {
+  text-align: center;
+  font-size: 15;
+  color: white;
+}
+
+.player-img {
+  display: block;
+  float: top;
+  border-radius: 25px;
+  width: 75px;
+  height: 75px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.logo-img {
+  display: block;
+  float: bottom;
+  border-radius: 10px;
+  width: 35px;
+  height: 35px;
+  margin-left: 30px;
+  margin-bottom: 10px;
 }

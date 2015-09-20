@@ -1,6 +1,7 @@
 
 var atrapApp = angular.module('atrapApp', [
   'ngRoute',
+  'atrapFilters',
   'atrapControllers',
   'atrapServices'
 ]);
