@@ -18,6 +18,12 @@ a {
   background-color: #00BC8C;
 }
 
+.search-input {
+  margin: 10px;
+  padding: 5px;
+  border: solid 3px black;
+}
+
 
 .player-section {
   display: block;

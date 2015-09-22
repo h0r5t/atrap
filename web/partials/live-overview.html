@@ -1,8 +1,13 @@
 
 <h1 class="full-width-bar pullDown">OVERVIEW</h1>
-<div ng-repeat="(playerID, playerInfo) in playerData" class="player-section">
+
+<div class="full-width-bar pullDown">
+  Filter:<input ng-model="searchQuery" ng-init="searchQuery=''" class="search-input">
+</div>
+
+<div ng-repeat="(playerID, playerInfo) in filterPlayerData(searchQuery)" class="player-section">
   <a ng-href="{{getPlayerUrl(playerID)}}">
-    <div class="box slideRight" appClickToggle>
+    <div class="box fadeIn" appClickToggle>
       <div class="top-of-box">
         <div class="images">
           <img src="img/players/generic.png" class="player-img">

@@ -21,6 +21,15 @@ atrapControllers.controller('LiveOverviewCtrl', ['$scope', '$location', 'AllPlay
         });
       }
     });
+    $scope.filterPlayerData = function(query) {
+      var result = {};
+      angular.forEach($scope.playerData, function(value, key) {
+          if (value.player_name.toLowerCase().indexOf(query.toLowerCase()) > -1 || value.team_name.toLowerCase().indexOf(query.toLowerCase()) > -1) {
+              result[key] = value;
+          }
+      });
+      return result;
+    };
   }]);
 
 atrapControllers.controller('PlayerDetailsCtrl', ['$scope', '$routeParams', 'Player',
