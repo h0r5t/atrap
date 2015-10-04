@@ -190,5 +190,64 @@
                       "player_position": "support"
                     }
                 ]
+    },
+    {
+      "team_id": 2526472,
+      "team_name": "$5JuNGz$",
+      "players":
+                [
+                    {
+                      "player_id": 86799300,
+                      "player_name": "FATA-",
+                      "player_position": "mid"
+                    },
+                    {
+                      "player_id": 72312627,
+                      "player_name": "MATUMBAMAN",
+                      "player_position": "carry"
+                    },
+                    {
+                      "player_id": 82262664,
+                      "player_name": "KuroKy",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 26771994,
+                      "player_name": "JerAx",
+                      "player_position": "support"
+                    },
+                    {
+                      "player_id": 34505203,
+                      "player_name": "MinD_ContRoL",
+                      "player_position": "offlane"
+                    }
+                ]
+    },
+    {
+      "team_id": 46,
+      "team_name": "Team Empire",
+      "players":
+                [
+                    {
+                      "player_id": 86725175,
+                      "player_name": "Resolut1on_",
+                      "player_position": "mid"
+                    },
+                    {
+                      "player_id": 89269794,
+                      "player_name": "Silent",
+                      "player_position": "carry"
+                    },
+                    {
+                      "player_id": 135270298,
+                      "player_name": "yolowarrior",
+                      "player_position": "offlane"
+                    },
+                    {
+                      "player_id": 123051238,
+                      "player_name": "ALOHAD4NCE",
+                      "player_position": "support"
+                    }
+                ]
     }
 ]
